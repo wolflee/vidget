@@ -97,6 +97,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.1)
     mime-types (1.23)
     mini_portile (0.5.0)
     mongoid (3.1.4)
@@ -124,6 +125,10 @@ GEM
       omniauth-oauth (~> 1.0)
     origin (1.1.0)
     polyglot (0.3.3)
+    pry (0.9.12.1)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
     puma (2.2.0)
       rack (>= 1.1, < 2.0)
     quiet_assets (1.0.2)
@@ -182,6 +187,7 @@ GEM
       multi_json (~> 1)
       redis (~> 3)
       redis-namespace
+    slop (3.4.4)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -219,6 +225,7 @@ DEPENDENCIES
   mongoid-rspec
   omniauth
   omniauth-twitter
+  pry
   puma
   quiet_assets
   rails (= 3.2.13)

@@ -1,6 +1,8 @@
 Vidget::Application.routes.draw do
   #get "videos/index"
-  resources :videos, only: [:index]
+  resources :videos, only: [:index, :create]
+
+  root :to => "videos#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
