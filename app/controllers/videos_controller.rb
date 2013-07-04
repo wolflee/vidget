@@ -7,6 +7,9 @@ class VideosController < ApplicationController
     @video = Video.create(url: params[:url])
     if @video.save
       VideoWorker.perform_async(@video.id)
+      flash[:notice] = "Video is being proccessed, please wait patiently."
+    else
+      flash[:notice] = "Someting went wrong. Please try again."
     end
 
     redirect_to root_path

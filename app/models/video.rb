@@ -17,11 +17,11 @@ class Video
   end
 
   def download
-    self.correctness = download_video(url, "public/videos")
+    self.correctness = download_video(url, ENV["VIDEO_STORAGE_DIR"])
   end
 
   def storage_path
-    Dir.glob("public/videos/*").grep(Regexp.new(Regexp.escape(title))).first if title
+    Dir.glob(ENV["VIDEO_STORAGE_DIR"] + "/*").grep(Regexp.new(Regexp.escape(title))).first if title
   end
 
   def download_path
@@ -29,6 +29,6 @@ class Video
   end
 
   def progress
-    (File.size?(storage_path) / size * 100.0 ).to_s + " %"
+    (File.size?(storage_path) / size * 100.0 ).to_s + " %" if storage_path
   end
 end

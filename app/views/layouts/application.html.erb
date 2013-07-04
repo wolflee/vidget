@@ -8,12 +8,7 @@
 </head>
 <body>
 
-<% flash.each do |key, value| %>
-  <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-<% end %>
-<% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
-<% end %>
+<p><%= flash[:notice] if flash[:notice]%></p>
 <%= yield %>
 
 </body>
