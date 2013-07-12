@@ -1,0 +1,17 @@
+.navbar {
+  height: 30px;
+}
+.main-content {
+  margin-top: 60px;
+}
+.icon-quill {
+  margin-right: 8px;
+}
+.full-width {
+  width: 100%;
+}
+.video-url {
+  margin-left: 15%;
+  width: 55%;
+  margin-right: 8px;
+}
