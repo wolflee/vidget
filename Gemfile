@@ -42,6 +42,7 @@ gem 'mongoid'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'sidekiq'
+gem 'slim-rails'
 
 group :development do
   gem 'better_errors'

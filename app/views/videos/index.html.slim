@@ -1,0 +1,45 @@
+div class="navbar navbar-fixed-top"
+  .navbar-inner
+    .container
+      a.brand href="/"
+        span.icon-quill
+        | Vidget
+      .navbar-content
+        ul class="nav pull-right"
+          li
+            a href="#"
+              | About
+          li.active
+            a href="#"
+              | Home
+
+div class="container main-content"
+  - if flash[:notice]
+    div class="alert alert-info hidden-phone"
+      a.close data-dismiss="alert"
+        | x
+      span
+        b
+          = flash[:notice]
+  p.lead Vidget is an easy-to-use web app that helps you to download videos from Internet onto your local storage or cloudly save it to your Dropbox.
+  .row
+    = form_tag '/videos' do
+      = text_field_tag(:url, nil, class: "pull-left input-medium video-url", placeholder: "Enter a youtube video address")
+      = button_tag(class: "btn btn-primary", type: "submit") do
+        span.icon-download-2
+      a class="btn btn-primary"
+        span.icon-download-2
+      a class="btn btn-success"
+        span.icon-box-add
+      / = submit_tag("Enter")
+  .row
+    ul
+      - @videos.each do |video|
+        li
+          span
+            = video.title
+            = video.progress
+            = link_to "Download", video.download_path
+  .row style="display:none;"
+    div class="progress active progress-info"
+      .bar style="width: 376px;"
