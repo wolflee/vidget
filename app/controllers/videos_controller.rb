@@ -1,12 +1,19 @@
 class VideosController < ApplicationController
   def index
-    @videos = Video.all
+    if returned_visitor?
+      @videos = current_user.videos.all
+    else
+      @videos = Video.all.limit(10)
+    end
+    #@videos = Video.all
   end
 
   def create
-    @video = Video.create(url: params[:url])
+    user = current_user || User.create!
+    sign_in user
+    @video = user.videos.create(url: params[:url])
     if @video.save
-      VideoWorker.perform_async(@video.id)
+      VideoWorker.perform_async(user.id, @video.id)
       flash[:notice] = "Video is being proccessed, please wait patiently."
     else
       flash[:notice] = "Someting went wrong. Please try again."

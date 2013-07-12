@@ -10,6 +10,8 @@ class Video
 
   validates :url, presence: true, uniqueness: true
 
+  embedded_in :user
+
   def extract_info
     extracted_info = extract info url
     self.correctness = !extracted_info.blank?
