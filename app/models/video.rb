@@ -31,6 +31,10 @@ class Video
   end
 
   def progress
-    (File.size?(storage_path) / size * 100.0 ).to_s + " %" if storage_path
+    (File.size?(storage_path) / size * 100.0 ) if storage_path
+  end
+
+  def completed?
+    !correctness || progress > 99.9
   end
 end

@@ -1,0 +1,39 @@
+.navbar {
+  height: 30px;
+}
+.main-content {
+  margin-top: 60px;
+}
+.icon-quill {
+  margin-right: 8px;
+}
+.full-width {
+  width: 100%;
+}
+.video-url {
+  margin-left: 15%;
+  width: 55%;
+  margin-right: 8px;
+}
+.video-progress {
+  display: inline-block;
+  width: 40%;
+  margin: 5px 5px -5px;
+}
+.video-name {
+  display: inline-block;
+  width: 35%;
+}
+.progress-percentage {
+  display: inline-block;
+  width: 55px;
+  margin-right: 5px;
+  text-align: right;
+}
+#video-list {
+  margin-left: 60px;
+  li {
+    list-style-type: none;
+    line-height: 32px;
+  }
+}

@@ -1,6 +1,8 @@
 Vidget::Application.routes.draw do
   #get "videos/index"
-  resources :videos, only: [:index, :create]
+  resources :videos, only: [:index, :create] do
+    get 'progress', on: :collection
+  end
 
   root :to => "videos#index"
 

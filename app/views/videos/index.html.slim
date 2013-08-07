@@ -1,11 +1,11 @@
-div class="navbar navbar-fixed-top"
+.navbar.navbar-fixed-top
   .navbar-inner
     .container
       a.brand href="/"
         span.icon-quill
         | Vidget
       .navbar-content
-        ul class="nav pull-right"
+        ul.nav.pull-right
           li
             a href="#"
               | About
@@ -13,9 +13,9 @@ div class="navbar navbar-fixed-top"
             a href="#"
               | Home
 
-div class="container main-content"
+.container.main-content
   - if flash[:notice]
-    div class="alert alert-info hidden-phone"
+    .alert.alert-info.hidden-phone
       a.close data-dismiss="alert"
         | x
       span
@@ -25,21 +25,15 @@ div class="container main-content"
   .row
     = form_tag '/videos' do
       = text_field_tag(:url, nil, class: "pull-left input-medium video-url", placeholder: "Enter a youtube video address")
-      = button_tag(class: "btn btn-primary", type: "submit") do
-        span.icon-download-2
-      a class="btn btn-primary"
-        span.icon-download-2
-      a class="btn btn-success"
+      = button_tag(class: "btn btn-success", type: "submit") do
         span.icon-box-add
-      / = submit_tag("Enter")
   .row
-    ul
+    ul#video-list.full-width
       - @videos.each do |video|
-        li
-          span
+        li.video id=video.id
+          span.video-name
             = video.title
-            = video.progress
-            = link_to "Download", video.download_path
-  .row style="display:none;"
-    div class="progress active progress-info"
-      .bar style="width: 376px;"
+          .video-progress.progress.active.progress-info.progress-striped
+            .bar style="width: #{video.progress}%;"
+          span.progress-percentage
+            = "#{video.progress} %"

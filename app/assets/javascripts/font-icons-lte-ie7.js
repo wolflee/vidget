@@ -1,6 +1,5 @@
 /* Load this script using conditional IE comments if you need to support IE 7 and IE 6. */
 
-<!--[if lt IE 8]>
 window.onload = function() {
 	function addIcon(el, entity) {
 		var html = el.innerHTML;
@@ -188,4 +187,3 @@ window.onload = function() {
 		}
 	}
 };
-<![endif]-->

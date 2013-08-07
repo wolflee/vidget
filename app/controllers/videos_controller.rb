@@ -2,6 +2,9 @@ class VideosController < ApplicationController
   def index
     if returned_visitor?
       @videos = current_user.videos.all
+      @videos.each do |video|
+
+      end
     else
       @videos = Video.all.limit(10)
     end
@@ -32,4 +35,15 @@ class VideosController < ApplicationController
     #  raise
     #end
   end
+
+  def progress
+    #video = current_user.videos.find(params[:id])
+    #render text: video.progress
+    videos = []
+    if returned_visitor?
+      videos = current_user.videos.map{ |video| { id: video.id, is_completed: video.completed?, progress: video.progress, link: video.download_path } }
+    end
+    render json: videos
+  end
+
 end
